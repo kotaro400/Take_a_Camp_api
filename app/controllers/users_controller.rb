@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       cookies.permanent.signed[:user_id] = @user.id
       render json: {name: @user.name}
     else
-      render json: {error: @user.errors.full_messages}
+      render json: {error: @user.errors.full_messages}, status: 400
     end
   end
 

@@ -13,7 +13,6 @@ class ApplicationController < ActionController::API
 
   def check_xhr_header
     return if request.xhr?
-
     render json: { error: 'forbidden' }, status: 403
   end
 end
