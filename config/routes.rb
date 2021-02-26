@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   scope :api do
     resources :users
     resource :session, only: [:create, :destroy]
+    resources :cells
   end
 end

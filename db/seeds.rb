@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+(0..4).each do |row|
+    (0..4).each do |col|
+        Cell.create(row: row, col: col)
+    end
+end

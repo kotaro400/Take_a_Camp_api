@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   before_action :authenticate_user
 
   def authenticate_user
-    render json: {error: "unauthorized"} unless current_user
+    render json: {error: "unauthorized"}, status: 401 unless current_user
   end
 
   def current_user
@@ -14,6 +14,6 @@ class ApplicationController < ActionController::API
   def check_xhr_header
     return if request.xhr?
 
-    render json: { error: 'forbidden' }
+    render json: { error: 'forbidden' }, status: 403
   end
 end
