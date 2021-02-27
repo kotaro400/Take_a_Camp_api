@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_100716) do
+ActiveRecord::Schema.define(version: 2021_02_27_113833) do
 
   create_table "cells", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "row", null: false
@@ -27,4 +27,15 @@ ActiveRecord::Schema.define(version: 2021_02_26_100716) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "cell_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cell_id"], name: "index_votes_on_cell_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
+  add_foreign_key "votes", "cells"
+  add_foreign_key "votes", "users"
 end

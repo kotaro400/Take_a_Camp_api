@@ -1,4 +1,5 @@
 class Cell < ApplicationRecord
+  has_many :votes
 
   def self.two_dimensional_array
     result = []
