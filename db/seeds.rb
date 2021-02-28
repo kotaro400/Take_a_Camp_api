@@ -6,9 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Team.create(
+  [
+    {id: 1},
+    {id: 2}
+  ]
+)
 
 (0..4).each do |row|
     (0..4).each do |col|
+      if row == 0 && col == 0
+        Cell.create(row: row, col: col, team_id: 1) 
+      elsif row == 4 && col == 4
+        Cell.create(row: row, col: col, team_id: 2)
+      else
         Cell.create(row: row, col: col)
     end
 end
+

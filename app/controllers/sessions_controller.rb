@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       cookies.permanent.signed[:user_id] = @user.id  
-      render json: {name: @user.name}
+      render json: {name: @user.name, team_id: @user.team_id}
     else
       render json: {error: "error"}, status: 400
     end

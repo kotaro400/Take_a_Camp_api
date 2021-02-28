@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_113833) do
+ActiveRecord::Schema.define(version: 2021_02_28_032607) do
 
   create_table "cells", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "row", null: false
     t.integer "col", null: false
-    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "team_id"
+    t.index ["team_id"], name: "index_cells_on_team_id"
+  end
+
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_113833) do
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "team_id"
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
   create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_113833) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+  add_foreign_key "cells", "teams"
+  add_foreign_key "users", "teams"
   add_foreign_key "votes", "cells"
   add_foreign_key "votes", "users"
 end
