@@ -13,14 +13,14 @@ Team.create(
   ]
 )
 
-(0..4).each do |row|
-    (0..4).each do |col|
-      if row == 0 && col == 0
-        Cell.create(row: row, col: col, team_id: 1) 
-      elsif row == 4 && col == 4
-        Cell.create(row: row, col: col, team_id: 2)
-      else
-        Cell.create(row: row, col: col)
+(0..10).each do |row|
+  (0..10).each do |col|
+    if row == 0 && col == 0
+      Cell.create(row: row, col: col, team_id: 1) 
+    elsif row == 9 && col == 9
+      Cell.create(row: row, col: col, team_id: 2)
+    else
+      Cell.create(row: row, col: col)
     end
+  end
 end
-
