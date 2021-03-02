@@ -3,7 +3,7 @@ class Team < ApplicationRecord
   has_many :users
 
   def adjacent_cells
-    cells.map{|cell| cell.adjacent_cells }.flatten.uniq.delete_if{|cell| cells.include?(cell)}
+    cells.map{|cell| cell.adjacent_cells << cell }.flatten.uniq
   end
 
   def votes
