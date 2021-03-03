@@ -4,7 +4,7 @@ class Cell < ApplicationRecord
 
   def self.two_dimensional_array
     result = []
-    10.times.each do |n|
+    11.times.each do |n|
       result.push(Cell.where(row: n).order(:col))
     end
     result
