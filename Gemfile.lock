@@ -124,6 +124,9 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
+    rails_same_site_cookie (0.1.8)
+      rack (>= 1.5)
+      user_agent_parser (~> 2.5)
     railties (6.0.3.5)
       actionpack (= 6.0.3.5)
       activesupport (= 6.0.3.5)
@@ -150,6 +153,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
+    user_agent_parser (2.7.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -171,6 +175,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 6.0.0)
   rails-i18n
+  rails_same_site_cookie
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
