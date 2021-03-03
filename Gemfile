@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails-i18n'
 
+gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -28,6 +30,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 
 gem 'whenever', require: false
+
+group :production, :staging do
+  gem 'unicorn'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
