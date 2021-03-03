@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      cell: マス
+      team: チーム
+      user: ユーザー
+      vote: 投票
+    attributes:
+      user:
+        name: ニックネーム
+        password: パスワード
+        
+        

@@ -7,7 +7,7 @@ class Vote < ApplicationRecord
 
   private
   def validate_adjacency
-    errors.add(:base) unless user.team.adjacent_cells.include?(cell)
+    errors.add(:base, "自領土か隣接しているマスを選択してください") unless user.team.adjacent_cells.include?(cell)
   end
 
 end
