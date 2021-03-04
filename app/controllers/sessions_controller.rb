@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       cookies.permanent.signed[:user_id] = {
         value: @user.id,
-        httponly: true
+        httponly: true,
+        domain: "herokuapp.com",
+        secure: true
       } 
       render json: {name: @user.name, team_id: @user.team_id}
     else
