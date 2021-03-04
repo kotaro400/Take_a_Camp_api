@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       } 
       render json: {name: @user.name, team_id: @user.team_id}
     else
-      render json: {error: "error"}, status: 400
+      render json: {error: "ニックネームまたはパスワードが違います"}, status: 400
     end
   end
 
