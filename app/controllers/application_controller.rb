@@ -12,8 +12,10 @@ class ApplicationController < ActionController::API
     begin
       encoded_token = request.headers['Authorization'].split(' ').last
       payload = decode(encoded_token)
+      puts payload
       User.find_by(id: payload["user_id"])
     rescue => exception
+      puts "error"
       nil
     end
   end
