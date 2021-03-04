@@ -1,7 +1,7 @@
 module JwtAuthenticater
   require "jwt"
 
-  SECRET_KEY = Rails.application.secrets.secret_key_base
+  SECRET_KEY = Rails.env.development? Rails.application.secrets.secret_key_base : ENV["SECRET_KEY_BASE"]
 
   def encode(user_id)
     expires_in = 1.week.from_now.to_i 
