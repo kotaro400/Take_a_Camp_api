@@ -7,11 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://take-a-camp.herokuapp.com', 'https://d3hlpxqlclicxz.cloudfront.net'
+    origins 'localhost:3001'
 
     resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      credentials: true
+      expose: ['X-Authentication-Token']
   end
 end

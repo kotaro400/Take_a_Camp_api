@@ -32,12 +32,6 @@ module TakeACampApi
     config.autoload_paths += Dir["#{config.root}/lib"]
     config.eager_load_paths += Dir["#{config.root}/lib/**/"]
 
-    config.session_store :cookie_store, key: "_take_a_camp_api_session", domain: 'herokuapp.com'
-
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
-    config.middleware.use ActionDispatch::ContentSecurityPolicy::Middleware
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
