@@ -32,6 +32,14 @@ module TakeACampApi
     config.autoload_paths += Dir["#{config.root}/lib"]
     config.eager_load_paths += Dir["#{config.root}/lib/**/"]
 
+    config.generators do |g|
+      g.test_framework :rspec,
+            view_specs: false,
+            helper_specs: false,
+            controller_specs: false,
+            routing_specs: false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
