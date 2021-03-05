@@ -27,15 +27,15 @@ Team.create(
     elsif row == 10 && col == 10
       Cell.create(row: row, col: col, team_id: 2, point: 1)
     elsif row == 5 && col == 5
-      Cell.create(row: row, col: col, point: 3)
+      Cell.create(row: row, col: col, point: 10)
     elsif row == 1 && col == 5
-      Cell.create(row: row, col: col, point: 2)
+      Cell.create(row: row, col: col, point: 5)
     elsif row == 5 && col == 1
-      Cell.create(row: row, col: col, point: 2)
+      Cell.create(row: row, col: col, point: 5)
     elsif row == 9 && col == 5
-      Cell.create(row: row, col: col, point: 2)
+      Cell.create(row: row, col: col, point: 5)
     elsif row == 5 && col == 9
-      Cell.create(row: row, col: col, point: 2)
+      Cell.create(row: row, col: col, point: 5)
     else
       Cell.create(row: row, col: col, point: 1)
     end
