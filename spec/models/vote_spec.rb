@@ -20,6 +20,16 @@ RSpec.describe Vote, type: :model do
     end
 
     describe "validate_no_obstacle" do
+      before do
+        Cell.where(row: 1, col: 0)
+        .or(Cell.where(row: 2, col: 0))
+        .or(Cell.where(row: 3, col: 0))
+        .or(Cell.where(row: 4, col: 0))
+        .or(Cell.where(row: 4, col: 1))
+        .or(Cell.where(row: 4, col: 2))
+        .or(Cell.where(row: 4, col: 3)).update_all(team_id: 1)
+      end
+
       it "[4, 6]には投票できない" do
         vote = build(:vote, cell: Cell.find_by(row: 4, col: 6))
         expect(vote).not_to be_valid
