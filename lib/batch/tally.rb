@@ -18,8 +18,10 @@ class Tally
       all_selected_cells.group_by{|cell| cell[:cell_id] }.each do |cell_id, teams|
         if teams.length > 1
           team_of_cell = Cell.find(cell_id).team
-          winner_team = teams.map{|team| team_of_cell&.id == team[:team_id] ? team.merge({count: team[:count] * 2}) : team }.max_by{|team| team[:count]}
-          Cell.find(cell_id).update!(team_id: winner_team[:team_id])
+          teams_with_count = teams.map{|team| team_of_cell&.id == team[:team_id] ? team.merge({count: team[:count] * 2}) : team }
+          max_count = teams_with_count.max_by{|team| team[:count] }[:count]
+          winner_team = teams_with_count.select{|team| team[:count] == max_count}
+          Cell.find(cell_id).update!(team_id: winner_team[0][:team_id]) if winner_team.length == 1
         else
           Cell.find(cell_id).update!(team_id: teams[0][:team_id])
         end
